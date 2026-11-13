@@ -696,18 +696,78 @@ button {
 }
 
 /* ==========================================================================
-   RESTRUCTURED & STYLED GUIDELINES (Strict 2-Column Desktop Grid)
+   RESTRUCTURED & STYLED GUIDELINES (Strict 2-Column Grid on Mobile & Desktop)
    ========================================================================== */
 .styled-guidelines-grid {
   display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: 1.5rem !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 1.25rem !important;
 }
 
 @media (max-width: 900px) {
   .styled-guidelines-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.1rem !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.75rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .styled-guidelines-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.55rem !important;
+  }
+
+  .protocol-card {
+    padding: 0.9rem 0.75rem !important;
+    border-radius: 10px !important;
+  }
+
+  .protocol-top-bar {
+    margin-bottom: 0.6rem !important;
+  }
+
+  .protocol-badge {
+    font-size: 0.58rem !important;
+    padding: 2px 6px !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .protocol-icon-wrap {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 8px !important;
+  }
+
+  .protocol-icon-wrap svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+
+  .protocol-category {
+    font-size: 0.62rem !important;
+    margin-bottom: 0.2rem !important;
+    letter-spacing: 0.03em !important;
+  }
+
+  .protocol-title {
+    font-size: 0.88rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .protocol-desc {
+    font-size: 0.72rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.6rem !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .protocol-number-tag {
+    font-size: 0.6rem !important;
+    padding-top: 0.45rem !important;
   }
 }
 
@@ -1067,8 +1127,8 @@ button {
   }
 
   .styled-guidelines-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.65rem !important;
   }
 
   .protocol-card {
