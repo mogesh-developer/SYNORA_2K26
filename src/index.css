@@ -699,9 +699,16 @@ button {
    RESTRUCTURED & STYLED GUIDELINES (Strict 2-Column Desktop Grid)
    ========================================================================== */
 .styled-guidelines-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 1.5rem !important;
+}
+
+@media (max-width: 900px) {
+  .styled-guidelines-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.1rem !important;
+  }
 }
 
 .protocol-card {
