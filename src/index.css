@@ -696,11 +696,11 @@ button {
 }
 
 /* ==========================================================================
-   RESTRUCTURED & STYLED GUIDELINES (Premium Cards)
+   RESTRUCTURED & STYLED GUIDELINES (Strict 2-Column Desktop Grid)
    ========================================================================== */
 .styled-guidelines-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
