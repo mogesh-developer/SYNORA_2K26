@@ -610,61 +610,41 @@ export default function App() {
         </section>
       </main>
 
-      {/* Footer */}
+      {/* Footer (Clean & Minimalist) */}
       <footer className="site-footer">
         <div className="container">
-          <div className="footer-grid">
-            <div>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.75rem" }}>
+          <div className="footer-compact-wrap">
+            <div className="footer-brand-side">
+              <div className="footer-logo-row">
                 <img 
                   src="/synora-logo.png" 
                   alt="SYNORA" 
-                  style={{ width: "32px", height: "32px", objectFit: "contain", borderRadius: "50%" }}
+                  className="footer-logo-img"
                   onError={(e) => { e.target.style.display = 'none'; }}
                 />
-                <span style={{ fontSize: "1.15rem", fontWeight: 700, color: "#fff" }}>{FESTIVAL_INFO.name}</span>
+                <span className="footer-brand-title">{FESTIVAL_INFO.name}</span>
+                <span className="footer-brand-badge">2K26</span>
               </div>
-              <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", maxWidth: "380px", lineHeight: "1.5" }}>
-                {FESTIVAL_INFO.college} (Autonomous) • {FESTIVAL_INFO.department}.
-              </p>
-              <p style={{ color: "var(--text-faint)", fontSize: "0.8rem", marginTop: "0.5rem" }}>
-                {FESTIVAL_INFO.accreditation}
+              <p className="footer-college-sub">
+                {FESTIVAL_INFO.college} (Autonomous) • {FESTIVAL_INFO.department}
               </p>
             </div>
 
-            <div>
-              <div className="footer-col-title">Registration Desk</div>
-              <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", marginBottom: "0.4rem" }}>
-                Faculty: <strong style={{ color: "#fff" }}>Ms. P. Malarvizhi & Ms. D. Sindhiya Graham</strong>
-              </p>
-              <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", marginBottom: "0.4rem" }}>
-                Fee: <strong style={{ color: "var(--accent)" }}>{FESTIVAL_INFO.registrationFee}</strong>
-              </p>
-              <p style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>
-                Date: <strong style={{ color: "#fff" }}>{FESTIVAL_INFO.dateFormatted} ({FESTIVAL_INFO.timeFormatted})</strong>
-              </p>
-            </div>
-
-            <div>
-              <div className="footer-col-title">Official Form Submission</div>
-              <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", marginBottom: "0.8rem" }}>
-                Google Form link for participant roster and event selection:
-              </p>
+            <div className="footer-actions-side">
               <a 
                 href={FESTIVAL_INFO.googleFormUrl} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="btn-register-direct"
-                style={{ width: "fit-content" }}
+                className="footer-register-btn"
               >
-                <span>Submit Google Form</span>
-                <ExternalLink size={14} />
+                <span>Register (₹70)</span>
+                <ExternalLink size={13} />
               </a>
             </div>
           </div>
 
           <div className="footer-copy">
-            {FESTIVAL_INFO.name} • {FESTIVAL_INFO.college} • {FESTIVAL_INFO.department}.
+            © 2026 SYNORA • Department of Computer Science (Satellite Campus), The American College, Madurai.
           </div>
         </div>
       </footer>
