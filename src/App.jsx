@@ -503,20 +503,11 @@ export default function App() {
               </p>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: "1rem" }}>
+            <div className="coordinators-grid">
               {STUDENT_COORDINATORS.map((coord, idx) => (
-                <div 
-                  key={idx}
-                  style={{
-                    background: "var(--bg-card)",
-                    border: "1px solid var(--border)",
-                    borderLeft: "3px solid var(--accent)",
-                    borderRadius: "8px",
-                    padding: "1.1rem"
-                  }}
-                >
-                  <div style={{ fontWeight: 700, color: "#fff", fontSize: "1.05rem" }}>{coord.name}</div>
-                  <div style={{ fontSize: "0.85rem", color: "var(--accent)", fontFamily: "var(--font-mono)", marginTop: "4px" }}>
+                <div key={idx} className="coordinator-card">
+                  <div className="coordinator-name">{coord.name}</div>
+                  <div className="coordinator-roll">
                     Roll No: {coord.rollNo}
                   </div>
                 </div>

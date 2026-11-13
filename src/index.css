@@ -696,6 +696,67 @@ button {
 }
 
 /* ==========================================================================
+   STUDENT COORDINATORS (Clean 2-Column Responsive Layout)
+   ========================================================================== */
+.coordinators-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.coordinator-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 1.1rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.coordinator-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-light);
+}
+
+.coordinator-name {
+  font-weight: 700;
+  color: #fff;
+  font-size: 1.05rem;
+}
+
+.coordinator-roll {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .coordinators-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.65rem !important;
+  }
+
+  .coordinator-card {
+    padding: 0.85rem 0.75rem !important;
+    border-radius: 6px !important;
+  }
+
+  .coordinator-name {
+    font-size: 0.88rem !important;
+    line-height: 1.25 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .coordinator-roll {
+    font-size: 0.72rem !important;
+    margin-top: 2px !important;
+  }
+}
+
+/* ==========================================================================
    RESTRUCTURED & STYLED GUIDELINES (Strict 2-Column Grid on Mobile & Desktop)
    ========================================================================== */
 .styled-guidelines-grid {
