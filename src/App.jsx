@@ -59,19 +59,22 @@ export default function App() {
 
   return (
     <div className="site-wrapper">
-      {/* Desktop Header */}
+      {/* Redesigned Floating Capsule Top Navbar */}
       <header className="header-nav">
-        <div className="container header-inner">
+        <div className="header-floating-pill">
+          {/* Brand Identity with Emblem */}
           <a href="#" className="brand-link">
-            <img 
-              src="/synora-logo.png" 
-              alt="SYNORA Logo" 
-              style={{ width: "42px", height: "42px", objectFit: "contain", borderRadius: "50%", filter: "drop-shadow(0 2px 8px rgba(229,149,0,0.4))" }}
-              onError={(e) => { e.target.style.display = 'none'; }}
-            />
-            <div>
+            <div className="brand-logo-glow">
+              <img 
+                src="/synora-logo.png" 
+                alt="SYNORA Logo" 
+                className="brand-logo-img"
+                onError={(e) => { e.target.style.display = 'none'; }}
+              />
+            </div>
+            <div className="brand-meta">
               <span className="brand-name">{FESTIVAL_INFO.name}</span>
-              <span className="brand-sub">The American College • Madurai</span>
+              <span className="brand-sub">The American College</span>
             </div>
           </a>
 
@@ -80,17 +83,27 @@ export default function App() {
             <a href="#events" className="nav-link">Competitions</a>
             <a href="#coordinators" className="nav-link">Coordinators</a>
             <a href="#guidelines" className="nav-link">Guidelines</a>
-            <a href="#register" className="nav-link">Registration</a>
             <a 
               href={FESTIVAL_INFO.googleFormUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="nav-cta-btn"
             >
-              <span>Submit Google Form</span>
-              <ExternalLink size={14} />
+              <span>Register</span>
+              <ExternalLink size={13} />
             </a>
           </nav>
+
+          {/* Mobile Direct Register Pill Button inside Top Bar */}
+          <a 
+            href={FESTIVAL_INFO.googleFormUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="mobile-top-cta"
+          >
+            <span>Register</span>
+            <ExternalLink size={12} />
+          </a>
         </div>
       </header>
 
@@ -331,7 +344,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Event Cards Grid (Student Organizers removed from cards as requested) */}
+            {/* Event Cards Grid */}
             <div className="events-grid">
               {filteredEvents.map((event) => (
                 <div 
@@ -657,16 +670,15 @@ export default function App() {
       </footer>
 
       {/* =====================================================================
-          FIXED MOBILE BOTTOM APP NAVBAR
-          Clean 3 tabs: Events, Coordinators, Register
+          FIXED MOBILE BOTTOM APP NAVBAR (Floating Pill Capsule Dock)
           ===================================================================== */}
-      <nav className="mobile-app-bar" aria-label="Mobile Bottom App Bar" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+      <nav className="mobile-app-bar" aria-label="Mobile Bottom App Bar">
         <a 
           href="#events" 
           className={`mobile-app-tab ${currentNavTab === "events" ? "active" : ""}`}
           onClick={() => setCurrentNavTab("events")}
         >
-          <Building2 size={20} />
+          <Building2 size={19} />
           <span>Events</span>
         </a>
         <a 
@@ -674,7 +686,7 @@ export default function App() {
           className={`mobile-app-tab ${currentNavTab === "team" ? "active" : ""}`}
           onClick={() => setCurrentNavTab("team")}
         >
-          <Users size={20} />
+          <Users size={19} />
           <span>Team</span>
         </a>
         <a 
@@ -683,7 +695,7 @@ export default function App() {
           rel="noopener noreferrer" 
           className="mobile-app-tab-cta"
         >
-          <ExternalLink size={15} />
+          <ExternalLink size={14} />
           <span>Register</span>
         </a>
       </nav>
