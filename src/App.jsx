@@ -52,7 +52,6 @@ export default function App() {
       ev.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       ev.shortDesc.toLowerCase().includes(searchQuery.toLowerCase()) ||
       ev.venue.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (ev.organizers && ev.organizers.toLowerCase().includes(searchQuery.toLowerCase())) ||
       (ev.staffIncharge && ev.staffIncharge.toLowerCase().includes(searchQuery.toLowerCase())) ||
       (ev.judge && ev.judge.toLowerCase().includes(searchQuery.toLowerCase()));
     return degreeMatch && typeMatch && searchMatch;
@@ -247,7 +246,7 @@ export default function App() {
 
         {/* =================================================================
             2. EVENTS & COMPETITIONS (The Core Hub)
-            Contains Hall details, Timings, Rules, Staff & Integrated Desk Organizers
+            Contains Hall details, Timings, Rules & Staff In-charge
             ================================================================= */}
         <section id="events" className="section">
           <div className="container">
@@ -255,7 +254,7 @@ export default function App() {
               <span className="section-eyebrow">// Official Program Directory</span>
               <h2 className="section-title">Events & Competitions</h2>
               <p style={{ color: "var(--text-muted)", marginTop: "0.4rem", maxWidth: "650px", fontSize: "0.92rem" }}>
-                Select your academic degree level below. Every card displays the designated hall, timing, rules, staff in-charges, and student organizers.
+                Select your academic degree level below. Every card displays the designated hall, timing, rules, and staff in-charges.
               </p>
             </div>
 
@@ -285,7 +284,7 @@ export default function App() {
                   <Search size={15} style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", color: "var(--text-faint)" }} />
                   <input
                     type="text"
-                    placeholder={`Search events, organizers, halls...`}
+                    placeholder={`Search events, halls, staff...`}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     style={{
@@ -332,7 +331,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Event Cards Grid */}
+            {/* Event Cards Grid (Student Organizers removed from cards as requested) */}
             <div className="events-grid">
               {filteredEvents.map((event) => (
                 <div 
@@ -366,28 +365,6 @@ export default function App() {
                     <div className="spec-cell">
                       <span className="spec-title">Staff In-Charge</span>
                       <span className="spec-val">{event.staffIncharge || "Department Staff"}</span>
-                    </div>
-                  </div>
-
-                  {/* Integrated Student Organizers Directly Inside the Card */}
-                  <div style={{
-                    backgroundColor: "rgba(255, 255, 255, 0.025)",
-                    border: "1px solid rgba(255, 255, 255, 0.05)",
-                    borderRadius: "6px",
-                    padding: "0.5rem 0.75rem",
-                    marginBottom: "1rem",
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "0.5rem"
-                  }}>
-                    <Users size={14} style={{ color: "var(--accent)", marginTop: "2px", flexShrink: 0 }} />
-                    <div style={{ fontSize: "0.78rem", lineHeight: "1.35" }}>
-                      <span style={{ color: "var(--text-faint)", textTransform: "uppercase", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.04em", display: "block" }}>
-                        Student Organizers
-                      </span>
-                      <span style={{ color: "var(--text-main)", fontWeight: 500 }}>
-                        {event.organizers}
-                      </span>
                     </div>
                   </div>
 
@@ -477,11 +454,6 @@ export default function App() {
                     <p style={{ fontSize: "0.85rem", color: "var(--accent)", marginTop: "2px", fontWeight: 600 }}>{activeEventModal.judge || "Department Judge"}</p>
                   </div>
                 </div>
-
-                <div style={{ marginTop: "0.85rem", background: "#0e1116", padding: "0.75rem", borderRadius: "8px", border: "1px solid var(--border)" }}>
-                  <span className="spec-title">Student Event Organizers</span>
-                  <p style={{ fontSize: "0.88rem", color: "#fff", marginTop: "2px", fontWeight: 500 }}>{activeEventModal.organizers}</p>
-                </div>
               </div>
 
               <div className="modal-footer">
@@ -542,7 +514,6 @@ export default function App() {
 
         {/* =================================================================
             4. RESTRUCTURED & STYLED GUIDELINES SECTION
-            Premium architectural cards with dedicated iconography and category pill badges
             ================================================================= */}
         <section id="guidelines" className="section" style={{ backgroundColor: "#11141a" }}>
           <div className="container">
@@ -620,9 +591,6 @@ export default function App() {
                   <span>Open Official Google Registration Form</span>
                   <ExternalLink size={18} />
                 </a>
-                <span style={{ fontSize: "0.78rem", color: "var(--text-faint)", fontFamily: "var(--font-mono)" }}>
-                  Registration Desk leads: Dharshana L, Sowbakiya N, Mithradevi J, Shamema M, R Dharshini, Anudharshini T
-                </span>
               </div>
             </div>
           </div>
