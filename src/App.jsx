@@ -20,7 +20,9 @@ import {
   Timer,
   Laptop,
   Trophy,
-  Scale
+  Scale,
+  Mail,
+  Send
 } from "lucide-react";
 
 export default function App() {
@@ -365,6 +367,24 @@ export default function App() {
                   <h3 className="card-title">{event.title}</h3>
                   <p className="card-desc">{event.shortDesc}</p>
 
+                  {event.requiresSubmission && (
+                    <div style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      background: "rgba(229, 149, 0, 0.08)",
+                      border: "1px solid rgba(229, 149, 0, 0.25)",
+                      borderRadius: "6px",
+                      padding: "0.45rem 0.65rem",
+                      fontSize: "0.76rem",
+                      color: "var(--accent)",
+                      marginBottom: "0.85rem"
+                    }}>
+                      <Send size={13} style={{ flexShrink: 0 }} />
+                      <span>Submit soft copy to <strong>{event.submissionEmail}</strong> before <strong>{event.submissionDeadline}</strong></span>
+                    </div>
+                  )}
+
                   <div className="card-spec-grid">
                     <div className="spec-cell">
                       <span className="spec-title">Hall / Venue</span>
@@ -454,6 +474,38 @@ export default function App() {
                     <li key={idx}>{rule}</li>
                   ))}
                 </ul>
+
+                {activeEventModal.requiresSubmission && (
+                  <div style={{
+                    marginTop: "1.2rem",
+                    padding: "0.85rem 1rem",
+                    background: "rgba(229, 149, 0, 0.08)",
+                    border: "1px solid rgba(229, 149, 0, 0.3)",
+                    borderRadius: "8px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: "0.75rem",
+                    flexWrap: "wrap"
+                  }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+                      <Mail size={18} color="var(--accent)" />
+                      <div>
+                        <div style={{ fontSize: "0.82rem", fontWeight: 700, color: "#fff" }}>Soft Copy Email Submission</div>
+                        <div style={{ fontSize: "0.76rem", color: "var(--text-muted)" }}>
+                          Send to <strong style={{ color: "var(--accent)" }}>{activeEventModal.submissionEmail}</strong> on or before <strong>{activeEventModal.submissionDeadline}</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <a 
+                      href={`mailto:${activeEventModal.submissionEmail}?subject=${encodeURIComponent(`${activeEventModal.title} (${activeEventModal.category}) - Soft Copy Submission`)}`}
+                      className="btn-secondary"
+                      style={{ padding: "0.4rem 0.8rem", fontSize: "0.78rem" }}
+                    >
+                      <span>Compose Mail</span>
+                    </a>
+                  </div>
+                )}
               </div>
 
               <div className="modal-footer">
@@ -603,6 +655,16 @@ export default function App() {
               <p className="footer-college-sub">
                 {FESTIVAL_INFO.college} (Autonomous) • {FESTIVAL_INFO.department}
               </p>
+              <div style={{ display: "flex", alignItems: "center", gap: "6px", marginTop: "4px", fontSize: "0.82rem" }}>
+                <Mail size={13} color="var(--accent)" />
+                <span style={{ color: "var(--text-faint)" }}>Official Contact:</span>
+                <a 
+                  href={`mailto:${FESTIVAL_INFO.contactEmail}`} 
+                  style={{ color: "var(--accent)", textDecoration: "none", fontWeight: 600 }}
+                >
+                  {FESTIVAL_INFO.contactEmail}
+                </a>
+              </div>
             </div>
 
             <div className="footer-actions-side">

@@ -20,7 +20,7 @@ export const FESTIVAL_INFO = {
   ugGoogleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeFDoOmhDGrnAva5a3s7UffPSpaT6ziTMslVgHMOGuuZyJHtQ/viewform?usp=dialog", // UG Registration Form
   pgGoogleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSepOhnhrB9NgsQ_zhBeZPifoZghPAlHvT73Dcx5Rf49jsggqg/viewform?usp=publish-editor", // PG Registration Form
   googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeFDoOmhDGrnAva5a3s7UffPSpaT6ziTMslVgHMOGuuZyJHtQ/viewform?usp=dialog", // Default Fallback Form
-  contactEmail: "synora.cs@americancollege.edu.in",
+  contactEmail: "amcsynora@gmail.com",
   convenorContact: "+91 98401 23456"
 };
 
@@ -55,7 +55,7 @@ export const STRUCTURED_GUIDELINES = [
   {
     category: "Digital Challenge",
     title: "Poster Making (Online Mode)",
-    desc: "Poster Making will be executed online. Participants present their soft copy directly in front of the judge panel via the digital projection setup.",
+    desc: "Poster Making will be executed online. Participants must submit their soft copy to amcsynora@gmail.com on or before 23/11/2026. Presentation will be conducted in front of the judge panel via digital projection.",
     badge: "Digital"
   },
   {
@@ -106,9 +106,13 @@ export const EVENTS = [
     time: "09:30 am - 11:00 am",
     duration: "3 mins presentation + 2 mins queries",
     staffIncharge: "Ms. V. Backiyalaksmi",
+    requiresSubmission: true,
+    submissionDeadline: "23/11/2026",
+    submissionEmail: "amcsynora@gmail.com",
     rules: [
       "1 participant per team.",
       "Participants should bring hard copy and soft copy.",
+      "Soft copy of PPT / Paper must be submitted to amcsynora@gmail.com on or before 23/11/2026.",
       "Time Duration: 3 minutes for presentation and 2 minutes for queries.",
       "Topics:",
       "• Emerging Trends, Innovations and Challenges in Science, Technology and Society",
@@ -170,10 +174,14 @@ export const EVENTS = [
     time: "09:30 am - 10:30 am",
     duration: "1 hour",
     staffIncharge: "Department Coordinator",
+    requiresSubmission: true,
+    submissionDeadline: "23/11/2026",
+    submissionEmail: "amcsynora@gmail.com",
     rules: [
       "1 participant per team.",
       "Digital presentation via soft copy in front of judges.",
       "Note: This event conduction will be online.",
+      "Participants must email their poster soft copy to amcsynora@gmail.com on or before 23/11/2026.",
       "Topics:",
       "• Save Earth, Save Future",
       "• Go Green, Live Clean",
@@ -269,9 +277,13 @@ export const EVENTS = [
     time: "09:30 am - 11:30 am",
     duration: "3 mins presentation + 2 mins queries",
     staffIncharge: "Ms. V. Backiyalaksmi",
+    requiresSubmission: true,
+    submissionDeadline: "23/11/2026",
+    submissionEmail: "amcsynora@gmail.com",
     rules: [
       "1 participant per team.",
       "Participants should bring hard copy and soft copy.",
+      "Soft copy of PPT / Paper must be submitted to amcsynora@gmail.com on or before 23/11/2026.",
       "Time Duration: 3 minutes for presentation and 2 minutes for queries.",
       "Topics:",
       "• Emerging Trends, Innovations and Challenges in Science, Technology and Society",
@@ -292,9 +304,13 @@ export const EVENTS = [
     time: "09:30 am - 11:00 am",
     duration: "3 mins presentation + 2 mins queries",
     staffIncharge: "Mr. M. Silvanus Manual",
+    requiresSubmission: true,
+    submissionDeadline: "23/11/2026",
+    submissionEmail: "amcsynora@gmail.com",
     rules: [
       "1 participant per team.",
       "Participants should bring soft copy and hard copy.",
+      "Soft copy of the startup pitch presentation must be submitted to amcsynora@gmail.com on or before 23/11/2026.",
       "Time: 3 minutes for presentation and 2 minutes for queries."
     ]
   },
