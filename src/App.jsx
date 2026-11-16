@@ -541,47 +541,27 @@ export default function App() {
             <div className="register-callout-card">
               <span className="section-eyebrow">// Registration Gateway</span>
               <h2 className="register-callout-title">
-                Register for SYNORA 2K26 ({selectedDegree} Track)
+                Register for SYNORA 2K26
               </h2>
               <p className="register-callout-sub">
-                Registrations are accepted via official Google Forms. Currently active track: <strong>{selectedDegree === "UG" ? "Undergraduate (UG)" : "Postgraduate (PG)"}</strong>. Entry fee: <strong>{FESTIVAL_INFO.registrationFee}</strong>.
+                Registrations are accepted via official Google Forms. Active degree track selected above: <strong style={{ color: "var(--accent)" }}>{selectedDegree === "UG" ? "Undergraduate (UG)" : "Postgraduate (PG)"}</strong>. Entry fee: <strong>{FESTIVAL_INFO.registrationFee}</strong>.
               </p>
-
-              {/* Direct Track Selector for Registration */}
-              <div style={{ display: "inline-flex", gap: "0.75rem", marginBottom: "1.5rem" }}>
-                <button
-                  type="button"
-                  className={`pill-tab ${selectedDegree === "UG" ? "active" : ""}`}
-                  onClick={() => setSelectedDegree("UG")}
-                  style={{ borderRadius: "20px", padding: "0.55rem 1.4rem" }}
-                >
-                  UG Form
-                </button>
-                <button
-                  type="button"
-                  className={`pill-tab ${selectedDegree === "PG" ? "active" : ""}`}
-                  onClick={() => setSelectedDegree("PG")}
-                  style={{ borderRadius: "20px", padding: "0.55rem 1.4rem" }}
-                >
-                  PG Form
-                </button>
-              </div>
 
               <div className="form-steps-row">
                 <div className="form-step-box">
                   <span className="step-num">STEP 01</span>
                   <div className="step-heading">Open {selectedDegree} Form</div>
-                  <p className="step-text">Click the link below and provide your Name, Roll Number, and Class details.</p>
+                  <p className="step-text">Click the button below to load the designated {selectedDegree} participant registration form.</p>
                 </div>
                 <div className="form-step-box">
                   <span className="step-num">STEP 02</span>
-                  <div className="step-heading">Select Events</div>
-                  <p className="step-text">Choose your {selectedDegree} category competitions ({selectedDegree === "UG" ? "Quiz, Paper, Fireless Cooking, Ad-Zap, etc." : "Quiz, Paper, Startup Idea, Stress Interview, etc."}).</p>
+                  <div className="step-heading">Event Selection</div>
+                  <p className="step-text">Choose your {selectedDegree} competitions ({selectedDegree === "UG" ? "Quiz, Paper, Fireless Cooking, Ad-Zap, etc." : "Quiz, Paper, Startup Idea, Stress Interview, etc."}).</p>
                 </div>
                 <div className="form-step-box">
                   <span className="step-num">STEP 03</span>
-                  <div className="step-heading">Fee & Badges</div>
-                  <p className="step-text">Pay ₹70 at the registration desk and collect your event credentials and refreshment coupons.</p>
+                  <div className="step-heading">Fee & Check-In</div>
+                  <p className="step-text">Pay ₹70 at the check-in desk on the event day and receive your entry credentials and refreshment coupons.</p>
                 </div>
               </div>
 
@@ -596,8 +576,8 @@ export default function App() {
                   <span>Open Official {selectedDegree} Registration Form</span>
                   <ExternalLink size={18} />
                 </a>
-                <span style={{ fontSize: "0.8rem", color: "var(--text-faint)" }}>
-                  (Target Form: {selectedDegree === "UG" ? "Undergraduate Candidates" : "Postgraduate Candidates"})
+                <span style={{ fontSize: "0.82rem", color: "var(--text-muted)" }}>
+                  💡 Form automatically synced to <strong>{selectedDegree === "UG" ? "Undergraduate (UG)" : "Postgraduate (PG)"}</strong> track chosen in the Events section above.
                 </span>
               </div>
             </div>
