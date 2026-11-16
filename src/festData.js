@@ -18,7 +18,7 @@ export const FESTIVAL_INFO = {
   timeFormatted: "9:30 am",
   registrationFee: "₹70 per head",
   ugGoogleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeFDoOmhDGrnAva5a3s7UffPSpaT6ziTMslVgHMOGuuZyJHtQ/viewform?usp=dialog", // UG Registration Form
-  pgGoogleFormUrl: "https://forms.gle/synora-2k26-pg-registration", // PG Registration Form
+  pgGoogleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSepOhnhrB9NgsQ_zhBeZPifoZghPAlHvT73Dcx5Rf49jsggqg/viewform?usp=publish-editor", // PG Registration Form
   googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeFDoOmhDGrnAva5a3s7UffPSpaT6ziTMslVgHMOGuuZyJHtQ/viewform?usp=dialog", // Default Fallback Form
   contactEmail: "synora.cs@americancollege.edu.in",
   convenorContact: "+91 98401 23456"
