@@ -17,37 +17,39 @@ export const FESTIVAL_INFO = {
   dateFormatted: "Wednesday, November 25, 2K26",
   timeFormatted: "9:30 am",
   registrationFee: "₹70 per head",
-  googleFormUrl: "https://forms.gle/your-google-form-link-here", // Replace with your real Google Form Link
+  ugGoogleFormUrl: "https://forms.gle/synora-2k26-ug-registration", // UG Registration Form
+  pgGoogleFormUrl: "https://forms.gle/synora-2k26-pg-registration", // PG Registration Form
+  googleFormUrl: "https://forms.gle/synora-2k26-ug-registration", // Default Fallback Form
   contactEmail: "synora.cs@americancollege.edu.in",
   convenorContact: "+91 98401 23456"
 };
 
-// Student Coordinators directly from PDF Page 5
+// Student Coordinators directly from Official Document
 export const STUDENT_COORDINATORS = [
   { name: "MUTHUPANDI M", rollNo: "25PCS203" },
-  { name: "HARINI R", rollNo: "25PCS216" },
+  { name: "SRINITHI D", rollNo: "26PCS211" },
   { name: "MOHAMED IMRAN S", rollNo: "24COS223" },
   { name: "SRINITHI S", rollNo: "24COS245" }
 ];
 
-// Structured Guidelines with dedicated categories & icons
+// Structured Guidelines
 export const STRUCTURED_GUIDELINES = [
   {
     category: "Registration & Credentials",
     title: "Entry Fee & Check-In",
-    desc: "Fixed entry fee of ₹70 per participant. Covers official event badges, digital pass authentication, and refreshment coupons.",
+    desc: "Fixed entry fee of ₹70 per participant. Covers official event participation credentials and refreshment coupons.",
     badge: "Mandatory"
   },
   {
     category: "Academic Brackets",
     title: "Strict Track Isolation",
-    desc: "UG candidates (B.Sc / BCA) participate strictly in UG arenas. PG candidates (M.Sc / MCA) compete exclusively in PG events to ensure equal academic benchmarking.",
+    desc: "UG candidates participate strictly in UG arenas. PG candidates compete exclusively in PG events to ensure equal academic benchmarking.",
     badge: "Eligibility"
   },
   {
     category: "Punctuality & Presence",
     title: "Reporting to Designated Halls",
-    desc: "Participants must assemble at their respective allocated halls (E10, E11, E12, Msc 1, Msc 2, Msc 3, Lab, Mul Purpose Hall) 15 minutes before the time slot.",
+    desc: "Participants must assemble at their respective allocated halls (E10, E11, E12, Msc 1, Msc 2, Msc 3, AI Lab, Multi Purpose Hall) 15 minutes before the time slot.",
     badge: "Timeline"
   },
   {
@@ -70,7 +72,7 @@ export const STRUCTURED_GUIDELINES = [
   }
 ];
 
-// Official Rules, Venues, Timings, Faculty & Judges from Document
+// Official Events from Document (Cleaned - No Judges or Organizers on Cards)
 export const EVENTS = [
   // =========================================================================
   // UNDERGRADUATE (UG) EVENTS (8 Events)
@@ -80,14 +82,12 @@ export const EVENTS = [
     category: "UG",
     type: "Technical",
     title: "Quiz",
-    shortDesc: "Questions based on current affairs, tech fundamentals and rapid aptitude thinking.",
+    shortDesc: "Questions based on current affairs and basic technology with preliminary round.",
     teamSize: "2 participants per team",
-    venue: "E11",
-    time: "9:30 am - 10:15 am",
+    venue: "E11, Eva Swift",
+    time: "09:30 am - 10:15 am",
     duration: "45 Minutes",
     staffIncharge: "Dr. K. Berlin",
-    judge: "Department Panel",
-    organizers: "Jamuna Varshini B, Ashiyashifana J",
     rules: [
       "Prelims will be conducted.",
       "2 participants per team.",
@@ -100,18 +100,22 @@ export const EVENTS = [
     category: "UG",
     type: "Technical",
     title: "Paper Presentation",
-    shortDesc: "Present technical research papers and novel project implementations with slide deck & viva.",
+    shortDesc: "Present technical research papers with hard copy and soft copy on cutting-edge themes.",
     teamSize: "1 participant per team",
-    venue: "E12",
-    time: "9:30 am – 11:00 am",
+    venue: "E12, Eva Swift",
+    time: "09:30 am - 11:00 am",
     duration: "3 mins presentation + 2 mins queries",
     staffIncharge: "Ms. V. Backiyalaksmi",
-    judge: "Dr. A. John Sanjeev kumar",
-    organizers: "Shanthiya S, Vishali S",
     rules: [
       "1 participant per team.",
       "Participants should bring hard copy and soft copy.",
-      "Time Duration: 3 minutes for presentation and 2 minutes for queries."
+      "Time Duration: 3 minutes for presentation and 2 minutes for queries.",
+      "Topics:",
+      "• Emerging Trends, Innovations and Challenges in Science, Technology and Society",
+      "• Digital Privacy: Are We Really Safe Online",
+      "• Climate Change and Green Technology",
+      "• Social Media: Connecting or Disconnecting People?",
+      "• Women Empowerment Through Technology"
     ]
   },
   {
@@ -119,14 +123,12 @@ export const EVENTS = [
     category: "UG",
     type: "Non-Technical",
     title: "Fireless Cooking",
-    shortDesc: "Culinary creativity without flames or electrical appliances. Tested on hygiene, taste & presentation.",
+    shortDesc: "Culinary creativity without flame or electric appliances. Evaluated on hygiene, taste & presentation.",
     teamSize: "2 participants per team",
-    venue: "E10",
-    time: "9:30 am – 10:30 am",
+    venue: "E10, Eva Swift",
+    time: "09:30 am - 10:30 am",
     duration: "1 hour",
-    staffIncharge: "Mrs. K. Sankarewari",
-    judge: "Dr. K. Nithya",
-    organizers: "Priyadharshini K, Abirami",
+    staffIncharge: "Mrs. K. Sankareswari",
     rules: [
       "2 participants per team.",
       "No direct flames, induction stoves, or electric appliances are allowed.",
@@ -138,39 +140,16 @@ export const EVENTS = [
     ]
   },
   {
-    id: "ug-stress-interview",
-    category: "UG",
-    type: "Soft Skills",
-    title: "Stress Interview",
-    shortDesc: "Individual interview conducted by judges deliberately testing composure under pressure.",
-    teamSize: "1 participant per team",
-    venue: "Msc 1",
-    time: "9:30 am – 10:15 am",
-    duration: "5 minutes per candidate",
-    staffIncharge: "Mrs. K. Sankarewari",
-    judge: "Dr. Mr. R. Jackson Gunaraj",
-    organizers: "Mogesh M, Kabilan RP",
-    rules: [
-      "1 participant per team.",
-      "The participant will face an individual interview conducted by the judges.",
-      "The interviewer may deliberately create pressure or challenging situations to test the participant's response.",
-      "Participants should remain calm, confident, and professional throughout the interview.",
-      "Time Duration: 5 minutes."
-    ]
-  },
-  {
     id: "ug-ad-zap",
     category: "UG",
     type: "Creative",
     title: "Ad-Zap",
-    shortDesc: "Create spot ads, skits, role-play or commercial presentations on a given spot topic.",
+    shortDesc: "Create spot ads, skits, role-play or creative commercial presentations on an on-the-spot theme.",
     teamSize: "4 participants per team",
-    venue: "Msc 3",
-    time: "9:30 am – 11:00 am",
-    duration: "5 minutes performance",
+    venue: "Msc 3, JB Hall",
+    time: "09:30 am - 11:00 am",
+    duration: "5 minutes",
     staffIncharge: "Ms. D. Sindhiya Graham",
-    judge: "Dr. C. Mohan",
-    organizers: "Nishanth NP, Thoufiq Ahamed M, Meenalosane",
     rules: [
       "4 participants per team.",
       "Theme will be given on the spot.",
@@ -185,33 +164,35 @@ export const EVENTS = [
     category: "UG",
     type: "Creative",
     title: "Poster Making (Online)",
-    shortDesc: "Digital presentation of themed posters via soft copy in front of the judge panel (Online Mode).",
+    shortDesc: "Digital presentation via soft copy in front of the judge panel (Online Mode).",
     teamSize: "1 participant per team",
-    venue: "Msc 2",
-    time: "9:30 am - 10:15 am",
-    duration: "Evaluated by Judge",
+    venue: "English 1st yr Room, JB Hall",
+    time: "09:30 am - 10:30 am",
+    duration: "1 hour",
     staffIncharge: "Department Coordinator",
-    judge: "Dr. M. Ritchie Richardson",
-    organizers: "Shendy, Prabanjan",
     rules: [
       "1 participant per team.",
-      "Digital presentation via soft copy in the front of judges.",
-      "Note: This event conduction will be online."
+      "Digital presentation via soft copy in front of judges.",
+      "Note: This event conduction will be online.",
+      "Topics:",
+      "• Save Earth, Save Future",
+      "• Go Green, Live Clean",
+      "• Unity in Diversity",
+      "• Stop Pollution, Start Revolution",
+      "• Healthy Mind, Healthy Life"
     ]
   },
   {
-    id: "ug-prompt",
+    id: "ug-prompt-engineering",
     category: "UG",
     type: "Technical",
-    title: "Prompt",
-    shortDesc: "On-spot interactive AI prompt engineering challenge testing precise AI generation.",
+    title: "Prompt Engineering",
+    shortDesc: "On-spot interactive AI prompt task assessing generative precision and logic.",
     teamSize: "1 participant per team",
-    venue: "Lab",
-    time: "9:30 am - 10:00 am",
+    venue: "AI Lab, JB Hall",
+    time: "09:30 am - 10:30 am",
     duration: "20 minutes",
     staffIncharge: "Ms. P. Malarvizhi",
-    judge: "Dr. T. John paul Antony",
-    organizers: "Sivakumar M, Aakash Gandhi MGR",
     rules: [
       "1 participant per team.",
       "On-spot interactive AI Prompt Task.",
@@ -219,22 +200,39 @@ export const EVENTS = [
     ]
   },
   {
+    id: "ug-stress-interview",
+    category: "UG",
+    type: "Soft Skills",
+    title: "Stress Interview",
+    shortDesc: "Individual interview conducted under deliberate pressure to test poise and responsiveness.",
+    teamSize: "1 participant per team",
+    venue: "Msc 1, JB Hall",
+    time: "09:30 am - 12:00 pm",
+    duration: "5 minutes per candidate",
+    staffIncharge: "Mrs. K. Sankareswari",
+    rules: [
+      "1 participant per team.",
+      "The participant will face an individual interview conducted by the judges.",
+      "The interviewer may deliberately create pressure or challenging situations to test the participant's response.",
+      "Participants should remain calm, confident, and professional throughout the interview.",
+      "Time Duration: 5 minutes."
+    ]
+  },
+  {
     id: "ug-corporate-walk",
     category: "UG",
     type: "Professional",
     title: "Corporate Walk",
-    shortDesc: "Professional corporate walk judged on posture, confident walking, body language & grooming.",
+    shortDesc: "Formal corporate attire walk judged on posture, confidence, body language & grooming.",
     teamSize: "1 participant per team",
-    venue: "Mul Purpose Hall",
-    time: "9:30 am – 10:00 am",
+    venue: "Multi Purpose Hall",
+    time: "09:30 am - 10:30 am",
     duration: "3 minutes",
-    staffIncharge: "Mrs. K. Sankarewari",
-    judge: "Dr. Shourini Banerjee",
-    organizers: "Krishna Kumar B, NaveenKumar, Jayapandi",
+    staffIncharge: "Mrs. K. Sankareswari",
     rules: [
       "1 participant per team.",
       "The dress code must follow a formal corporate theme.",
-      "The walk should include: Proper posture, Confident walking, Professional body language, Appropriate facial expression, and Proper grooming.",
+      "The walk should include: Proper posture, Confident walking, Professional body language, Appropriate facial expression, Proper grooming.",
       "Duration: 3 minutes."
     ]
   },
@@ -247,14 +245,12 @@ export const EVENTS = [
     category: "PG",
     type: "Technical",
     title: "Quiz",
-    shortDesc: "Advanced level technical and current affairs quiz for postgraduate candidates.",
+    shortDesc: "Competitive technical and current affairs quiz designed for postgraduate participants.",
     teamSize: "2 participants per team",
-    venue: "E11",
-    time: "10:15 am – 11:00 am",
+    venue: "E11, Eva Swift",
+    time: "10:15 am - 11:00 am",
     duration: "45 Minutes",
     staffIncharge: "Dr. K. Berlin",
-    judge: "Department Panel",
-    organizers: "Jamuna Varshini B, Ashiyashifana J",
     rules: [
       "Prelims will be conducted.",
       "2 participants per team.",
@@ -267,18 +263,22 @@ export const EVENTS = [
     category: "PG",
     type: "Technical",
     title: "Paper Presentation",
-    shortDesc: "Postgraduate paper defense with hard copy & soft copy presentation before doctoral chair.",
+    shortDesc: "Postgraduate paper defense with hard copy and soft copy presentation before the chair.",
     teamSize: "1 participant per team",
-    venue: "E12",
-    time: "11:00 am – 12:30 pm",
+    venue: "English Conference, JB Hall",
+    time: "09:30 am - 11:30 am",
     duration: "3 mins presentation + 2 mins queries",
     staffIncharge: "Ms. V. Backiyalaksmi",
-    judge: "Dr. A. John Sanjeev kumar",
-    organizers: "Shanthiya S, Vishali S",
     rules: [
       "1 participant per team.",
       "Participants should bring hard copy and soft copy.",
-      "Time Duration: 3 minutes for presentation and 2 minutes for queries."
+      "Time Duration: 3 minutes for presentation and 2 minutes for queries.",
+      "Topics:",
+      "• Emerging Trends, Innovations and Challenges in Science, Technology and Society",
+      "• Digital Privacy: Are We Really Safe Online",
+      "• Climate Change and Green Technology",
+      "• Social Media: Connecting or Disconnecting People?",
+      "• Women Empowerment Through Technology"
     ]
   },
   {
@@ -286,18 +286,33 @@ export const EVENTS = [
     category: "PG",
     type: "Innovation",
     title: "Startup Idea",
-    shortDesc: "Pitch viable startup business ideas with soft copy and hard copy documentation to jury.",
-    teamSize: "2 participants per team",
-    venue: "English Conference",
-    time: "9:30 am – 10:30 am",
+    shortDesc: "Pitch entrepreneurial startup concepts with business feasibility deck and Q&A viva.",
+    teamSize: "1 participant per team",
+    venue: "Msc 2, JB Hall",
+    time: "09:30 am - 11:00 am",
     duration: "3 mins presentation + 2 mins queries",
     staffIncharge: "Mr. M. Silvanus Manual",
-    judge: "Dr. P.F.E. Divakaran",
-    organizers: "Srinithi D, Swetha",
     rules: [
-      "2 participants per team.",
+      "1 participant per team.",
       "Participants should bring soft copy and hard copy.",
       "Time: 3 minutes for presentation and 2 minutes for queries."
+    ]
+  },
+  {
+    id: "pg-prompt-engineering",
+    category: "PG",
+    type: "Technical",
+    title: "Prompt Engineering",
+    shortDesc: "Postgraduate level on-spot generative AI challenge evaluating prompt craft.",
+    teamSize: "1 participant per team",
+    venue: "AI Lab, JB Hall",
+    time: "09:30 am - 10:30 am",
+    duration: "20 minutes",
+    staffIncharge: "Ms. P. Malarvizhi",
+    rules: [
+      "1 participant per team.",
+      "On-spot interactive AI Prompt Task.",
+      "Time duration: 20 minutes."
     ]
   },
   {
@@ -305,14 +320,12 @@ export const EVENTS = [
     category: "PG",
     type: "Soft Skills",
     title: "Stress Interview",
-    shortDesc: "Master's level deliberate pressure interview to evaluate psychological composure & answers.",
+    shortDesc: "Intense pressure test evaluating critical thinking, demeanor, and verbal composure.",
     teamSize: "1 participant per team",
-    venue: "Msc 1",
-    time: "10:15 am – 11:00 am",
+    venue: "Msc 1, JB Hall",
+    time: "09:30 am - 12:00 pm",
     duration: "5 minutes",
-    staffIncharge: "Mrs. K. Sankarewari",
-    judge: "Dr. Mr. R. Jackson Gunaraj",
-    organizers: "Mogesh M, Kabilan RP",
+    staffIncharge: "Mrs. K. Sankareswari",
     rules: [
       "1 participant per team.",
       "The participant will face an individual interview conducted by the judges.",
@@ -322,41 +335,20 @@ export const EVENTS = [
     ]
   },
   {
-    id: "pg-prompt",
-    category: "PG",
-    type: "Technical",
-    title: "Prompt",
-    shortDesc: "Advanced prompt engineering challenge on spot in the computer lab.",
-    teamSize: "1 participant per team",
-    venue: "Lab",
-    time: "10:00 am - 10:30 am",
-    duration: "20 minutes",
-    staffIncharge: "Ms. P. Malarvizhi",
-    judge: "Dr. T. John paul Antony",
-    organizers: "Sivakumar M, Aakash Gandhi MGR",
-    rules: [
-      "1 participant per team.",
-      "On-spot interactive AI Prompt Task.",
-      "Time duration: 20 minutes."
-    ]
-  },
-  {
     id: "pg-corporate-walk",
     category: "PG",
     type: "Professional",
     title: "Corporate Walk",
-    shortDesc: "Corporate walk evaluation for PG candidates: posture, confidence, body language & grooming.",
+    shortDesc: "Executive styling and formal runway walk evaluated on posture, demeanor and grooming.",
     teamSize: "1 participant per team",
-    venue: "Mul Purpose Hall",
-    time: "10:00 am – 11:00 am",
+    venue: "Multi Purpose Hall",
+    time: "10:30 am - 11:30 am",
     duration: "3 minutes",
-    staffIncharge: "Mrs. K. Sankarewari",
-    judge: "Dr. Shourini Banerjee",
-    organizers: "Krishna Kumar B, NaveenKumar, Jayapandi",
+    staffIncharge: "Mrs. K. Sankareswari",
     rules: [
       "1 participant per team.",
       "The dress code must follow a formal corporate theme.",
-      "The walk should include: Proper posture, Confident walking, Professional body language, Appropriate facial expression, and Proper grooming.",
+      "The walk should include: Proper posture, Confident walking, Professional body language, Appropriate facial expression, Proper grooming.",
       "Duration: 3 minutes."
     ]
   }

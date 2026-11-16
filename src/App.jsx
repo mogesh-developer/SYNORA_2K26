@@ -9,7 +9,6 @@ import {
   ExternalLink, 
   X, 
   Search, 
-  ArrowRight, 
   Users, 
   Award, 
   Building2, 
@@ -30,6 +29,11 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeEventModal, setActiveEventModal] = useState(null);
   const [currentNavTab, setCurrentNavTab] = useState("events");
+
+  // Determine active registration link based on active section (UG or PG)
+  const activeRegistrationUrl = selectedDegree === "PG" 
+    ? FESTIVAL_INFO.pgGoogleFormUrl 
+    : FESTIVAL_INFO.ugGoogleFormUrl;
 
   // Icon map for structured guidelines
   const getGuidelineIcon = (index) => {
@@ -52,8 +56,7 @@ export default function App() {
       ev.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       ev.shortDesc.toLowerCase().includes(searchQuery.toLowerCase()) ||
       ev.venue.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (ev.staffIncharge && ev.staffIncharge.toLowerCase().includes(searchQuery.toLowerCase())) ||
-      (ev.judge && ev.judge.toLowerCase().includes(searchQuery.toLowerCase()));
+      (ev.staffIncharge && ev.staffIncharge.toLowerCase().includes(searchQuery.toLowerCase()));
     return degreeMatch && typeMatch && searchMatch;
   });
 
@@ -84,24 +87,26 @@ export default function App() {
             <a href="#coordinators" className="nav-link">Coordinators</a>
             <a href="#guidelines" className="nav-link">Guidelines</a>
             <a 
-              href={FESTIVAL_INFO.googleFormUrl} 
+              href={activeRegistrationUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="nav-cta-btn"
+              title={`Register for ${selectedDegree} Events`}
             >
-              <span>Register</span>
+              <span>Register ({selectedDegree})</span>
               <ExternalLink size={13} />
             </a>
           </nav>
 
           {/* Mobile Direct Register Pill Button inside Top Bar */}
           <a 
-            href={FESTIVAL_INFO.googleFormUrl} 
+            href={activeRegistrationUrl} 
             target="_blank" 
             rel="noopener noreferrer" 
             className="mobile-top-cta"
+            title={`Register for ${selectedDegree} Events`}
           >
-            <span>Register</span>
+            <span>Register ({selectedDegree})</span>
             <ExternalLink size={12} />
           </a>
         </div>
@@ -193,18 +198,9 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Action Buttons */}
+              {/* Action Button to Explore Events */}
               <div className="hero-actions" style={{ justifyContent: "center" }}>
-                <a 
-                  href={FESTIVAL_INFO.googleFormUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="btn-primary"
-                >
-                  <span>Register via Google Form</span>
-                  <ArrowRight size={17} />
-                </a>
-                <a href="#events" className="btn-secondary">
+                <a href="#events" className="btn-primary" style={{ padding: "0.85rem 2rem" }}>
                   <span>Explore UG & PG Arenas</span>
                 </a>
               </div>
@@ -302,49 +298,56 @@ export default function App() {
                     onChange={(e) => setSearchQuery(e.target.value)}
                     style={{
                       width: "100%",
+                      padding: "0.6rem 1rem 0.6rem 2.2rem",
                       backgroundColor: "var(--bg-card)",
                       border: "1px solid var(--border)",
-                      borderRadius: "8px",
-                      padding: "0.55rem 0.85rem 0.55rem 2.1rem",
+                      borderRadius: "20px",
                       color: "#fff",
                       fontSize: "0.85rem",
                       outline: "none"
                     }}
                   />
+                  {searchQuery && (
+                    <button
+                      onClick={() => setSearchQuery("")}
+                      style={{
+                        position: "absolute",
+                        right: "12px",
+                        top: "50%",
+                        transform: "translateY(-50%)",
+                        background: "none",
+                        border: "none",
+                        color: "var(--text-muted)",
+                        cursor: "pointer",
+                        padding: 0
+                      }}
+                    >
+                      <X size={14} />
+                    </button>
+                  )}
                 </div>
               </div>
 
-              {/* Clean Filter Chips */}
-              <div className="sub-filter-row" style={{ marginTop: "0.75rem" }}>
-                <button 
-                  className={`filter-btn ${selectedType === "ALL" ? "active" : ""}`}
-                  onClick={() => setSelectedType("ALL")}
-                >
-                  All Events
-                </button>
-                <button 
-                  className={`filter-btn ${selectedType === "Technical" ? "active" : ""}`}
-                  onClick={() => setSelectedType("Technical")}
-                >
-                  Technical
-                </button>
-                {selectedDegree === "UG" ? (
-                  <>
-                    <button className={`filter-btn ${selectedType === "Non-Technical" ? "active" : ""}`} onClick={() => setSelectedType("Non-Technical")}>Fireless Cooking</button>
-                    <button className={`filter-btn ${selectedType === "Creative" ? "active" : ""}`} onClick={() => setSelectedType("Creative")}>Ad-Zap & Poster</button>
-                    <button className={`filter-btn ${selectedType === "Soft Skills" ? "active" : ""}`} onClick={() => setSelectedType("Soft Skills")}>Stress Interview</button>
-                  </>
-                ) : (
-                  <>
-                    <button className={`filter-btn ${selectedType === "Innovation" ? "active" : ""}`} onClick={() => setSelectedType("Innovation")}>Startup Idea</button>
-                    <button className={`filter-btn ${selectedType === "Soft Skills" ? "active" : ""}`} onClick={() => setSelectedType("Soft Skills")}>Stress Interview</button>
-                    <button className={`filter-btn ${selectedType === "Professional" ? "active" : ""}`} onClick={() => setSelectedType("Professional")}>Corporate Walk</button>
-                  </>
-                )}
+              {/* Event Type Filters */}
+              <div className="filter-chips">
+                {["ALL", "Technical", "Non-Technical", "Creative", "Soft Skills", "Professional", "Innovation"].map((type) => {
+                  const count = EVENTS.filter(e => e.category === selectedDegree && (type === "ALL" || e.type === type)).length;
+                  if (count === 0 && type !== "ALL") return null;
+
+                  return (
+                    <button
+                      key={type}
+                      className={`filter-chip ${selectedType === type ? "active" : ""}`}
+                      onClick={() => setSelectedType(type)}
+                    >
+                      {type} ({count})
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Event Cards Grid */}
+            {/* Events Grid (Cleaned: No Judges, No Register Buttons on Cards) */}
             <div className="events-grid">
               {filteredEvents.map((event) => (
                 <div 
@@ -384,20 +387,11 @@ export default function App() {
                   <div className="card-action-bar" onClick={(e) => e.stopPropagation()}>
                     <button 
                       className="btn-details"
+                      style={{ width: "100%", justifyContent: "center" }}
                       onClick={() => setActiveEventModal(event)}
                     >
-                      View Rules & Judges
+                      View Rules & Guidelines
                     </button>
-                    <a 
-                      href={FESTIVAL_INFO.googleFormUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-register-direct"
-                      title="Direct Google Form link"
-                    >
-                      <span>Register</span>
-                      <ExternalLink size={13} />
-                    </a>
                   </div>
                 </div>
               ))}
@@ -449,49 +443,34 @@ export default function App() {
                   </div>
                 </div>
 
-                <h4 className="modal-section-title">// Official Rules & Regulations</h4>
+                <div style={{ background: "#0e1116", padding: "0.75rem", borderRadius: "8px", border: "1px solid var(--border)", marginBottom: "1rem" }}>
+                  <span className="spec-title">Staff In-Charge</span>
+                  <p style={{ fontSize: "0.9rem", color: "#fff", marginTop: "2px", fontWeight: 600 }}>{activeEventModal.staffIncharge || "Department Staff"}</p>
+                </div>
+
+                <h4 className="modal-section-title">// Official Rules & Guidelines</h4>
                 <ul className="modal-rules-list">
                   {activeEventModal.rules.map((rule, idx) => (
                     <li key={idx}>{rule}</li>
                   ))}
                 </ul>
-
-                <h4 className="modal-section-title">// Faculty & Judge Panel</h4>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.85rem", marginTop: "0.5rem" }}>
-                  <div style={{ background: "#0e1116", padding: "0.75rem", borderRadius: "8px", border: "1px solid var(--border)" }}>
-                    <span className="spec-title">Staff In-Charge</span>
-                    <p style={{ fontSize: "0.85rem", color: "#fff", marginTop: "2px", fontWeight: 600 }}>{activeEventModal.staffIncharge || "Staff Coordinator"}</p>
-                  </div>
-                  <div style={{ background: "#0e1116", padding: "0.75rem", borderRadius: "8px", border: "1px solid var(--border)" }}>
-                    <span className="spec-title">Official Judge</span>
-                    <p style={{ fontSize: "0.85rem", color: "var(--accent)", marginTop: "2px", fontWeight: 600 }}>{activeEventModal.judge || "Department Judge"}</p>
-                  </div>
-                </div>
               </div>
 
               <div className="modal-footer">
                 <button 
                   className="btn-secondary" 
+                  style={{ width: "100%" }}
                   onClick={() => setActiveEventModal(null)}
                 >
                   Close Window
                 </button>
-                <a 
-                  href={FESTIVAL_INFO.googleFormUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="btn-primary"
-                >
-                  <span>Open Google Form</span>
-                  <ExternalLink size={15} />
-                </a>
               </div>
             </div>
           </div>
         )}
 
         {/* =================================================================
-            3. STUDENT COORDINATORS (Clean & Compact)
+            3. STUDENT COORDINATORS (Clean & Compact 2-Column)
             ================================================================= */}
         <section id="coordinators" className="section">
           <div className="container">
@@ -555,53 +534,78 @@ export default function App() {
         </section>
 
         {/* =================================================================
-            5. REGISTRATION GATEWAY (Clean Google Form Flow)
+            5. REGISTRATION GATEWAY (Targeted UG / PG Google Form)
             ================================================================= */}
         <section id="register" className="section" style={{ backgroundColor: "#0f1217" }}>
           <div className="container">
             <div className="register-callout-card">
               <span className="section-eyebrow">// Registration Gateway</span>
-              <h2 className="register-callout-title">Register for SYNORA 2K26</h2>
+              <h2 className="register-callout-title">
+                Register for SYNORA 2K26 ({selectedDegree} Track)
+              </h2>
               <p className="register-callout-sub">
-                Registrations are accepted via Google Forms. Entry fee: <strong>{FESTIVAL_INFO.registrationFee}</strong>.
+                Registrations are accepted via official Google Forms. Currently active track: <strong>{selectedDegree === "UG" ? "Undergraduate (UG)" : "Postgraduate (PG)"}</strong>. Entry fee: <strong>{FESTIVAL_INFO.registrationFee}</strong>.
               </p>
+
+              {/* Direct Track Selector for Registration */}
+              <div style={{ display: "inline-flex", gap: "0.75rem", marginBottom: "1.5rem" }}>
+                <button
+                  type="button"
+                  className={`pill-tab ${selectedDegree === "UG" ? "active" : ""}`}
+                  onClick={() => setSelectedDegree("UG")}
+                  style={{ borderRadius: "20px", padding: "0.55rem 1.4rem" }}
+                >
+                  UG Form
+                </button>
+                <button
+                  type="button"
+                  className={`pill-tab ${selectedDegree === "PG" ? "active" : ""}`}
+                  onClick={() => setSelectedDegree("PG")}
+                  style={{ borderRadius: "20px", padding: "0.55rem 1.4rem" }}
+                >
+                  PG Form
+                </button>
+              </div>
 
               <div className="form-steps-row">
                 <div className="form-step-box">
                   <span className="step-num">STEP 01</span>
-                  <div className="step-heading">Open Google Form</div>
+                  <div className="step-heading">Open {selectedDegree} Form</div>
                   <p className="step-text">Click the link below and provide your Name, Roll Number, and Class details.</p>
                 </div>
                 <div className="form-step-box">
                   <span className="step-num">STEP 02</span>
-                  <div className="step-heading">Select UG or PG Track</div>
-                  <p className="step-text">Choose your designated category events (Quiz, Paper, Fireless Cooking, Prompt, etc.).</p>
+                  <div className="step-heading">Select Events</div>
+                  <p className="step-text">Choose your {selectedDegree} category competitions ({selectedDegree === "UG" ? "Quiz, Paper, Fireless Cooking, Ad-Zap, etc." : "Quiz, Paper, Startup Idea, Stress Interview, etc."}).</p>
                 </div>
                 <div className="form-step-box">
                   <span className="step-num">STEP 03</span>
-                  <div className="step-heading">Fee & Refreshments</div>
+                  <div className="step-heading">Fee & Badges</div>
                   <p className="step-text">Pay ₹70 at the registration desk and collect your event credentials and refreshment coupons.</p>
                 </div>
               </div>
 
               <div style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", gap: "0.75rem", width: "100%" }}>
                 <a 
-                  href={FESTIVAL_INFO.googleFormUrl} 
+                  href={activeRegistrationUrl} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="btn-primary"
                   style={{ padding: "0.95rem 2.2rem", fontSize: "1.05rem" }}
                 >
-                  <span>Open Official Google Registration Form</span>
+                  <span>Open Official {selectedDegree} Registration Form</span>
                   <ExternalLink size={18} />
                 </a>
+                <span style={{ fontSize: "0.8rem", color: "var(--text-faint)" }}>
+                  (Target Form: {selectedDegree === "UG" ? "Undergraduate Candidates" : "Postgraduate Candidates"})
+                </span>
               </div>
             </div>
           </div>
         </section>
       </main>
 
-      {/* Footer (Clean & Minimalist) */}
+      {/* Footer (Clean & Minimalist with Dynamic UG/PG link) */}
       <footer className="site-footer">
         <div className="container">
           <div className="footer-compact-wrap">
@@ -623,12 +627,13 @@ export default function App() {
 
             <div className="footer-actions-side">
               <a 
-                href={FESTIVAL_INFO.googleFormUrl} 
+                href={activeRegistrationUrl} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="footer-register-btn"
+                title={`Register for ${selectedDegree}`}
               >
-                <span>Register (₹70)</span>
+                <span>Register {selectedDegree} (₹70)</span>
                 <ExternalLink size={13} />
               </a>
             </div>
@@ -661,13 +666,14 @@ export default function App() {
           <span>Team</span>
         </a>
         <a 
-          href={FESTIVAL_INFO.googleFormUrl} 
+          href={activeRegistrationUrl} 
           target="_blank" 
           rel="noopener noreferrer" 
           className="mobile-app-tab-cta"
+          title={`Register for ${selectedDegree}`}
         >
           <ExternalLink size={14} />
-          <span>Register</span>
+          <span>Register ({selectedDegree})</span>
         </a>
       </nav>
     </div>
