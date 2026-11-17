@@ -26,32 +26,32 @@ export const FESTIVAL_INFO = {
 
 // Student Coordinators directly from Official Document
 export const STUDENT_COORDINATORS = [
-  { 
-    name: "MUTHUPANDI M", 
-    track: "PG", 
-    rollNo: "25PCS203", 
+  {
+    name: "MUTHUPANDI M",
+    track: "PG",
+    rollNo: "25PCS203",
     phone: "86430 70595",
     phoneTel: "+918643070595"
   },
-  { 
-    name: "SRINITHI D", 
-    track: "PG", 
-    rollNo: "26PCS211", 
+  {
+    name: "SRINITHI D",
+    track: "PG",
+    rollNo: "26PCS211",
     phone: "94886 69469",
     phoneTel: "+919488669469"
   },
-  { 
-    name: "MOHAMED IMRAN S", 
-    track: "UG", 
-    rollNo: "24COS223", 
-    phone: "+91 90809 31770",
+  {
+    name: "MOHAMED IMRAN S",
+    track: "UG",
+    rollNo: "24COS223",
+    phone: "90809 31770",
     phoneTel: "+919080931770"
   },
-  { 
-    name: "SRINITHI S", 
-    track: "UG", 
-    rollNo: "24COS245", 
-    phone: "+91 80726 39705",
+  {
+    name: "SRINITHI S",
+    track: "UG",
+    rollNo: "24COS245",
+    phone: "80726 39705",
     phoneTel: "+918072639705"
   }
 ];
