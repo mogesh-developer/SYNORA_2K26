@@ -31,6 +31,7 @@ export default function App() {
   const [selectedType, setSelectedType] = useState("ALL");
   const [searchQuery, setSearchQuery] = useState("");
   const [activeEventModal, setActiveEventModal] = useState(null);
+  const [activeGuidelineModal, setActiveGuidelineModal] = useState(null);
   const [currentNavTab, setCurrentNavTab] = useState("events");
 
   // Determine active registration link based on active section (UG or PG)
@@ -582,7 +583,15 @@ export default function App() {
 
             <div className="styled-guidelines-grid">
               {STRUCTURED_GUIDELINES.map((item, idx) => (
-                <div key={idx} className="protocol-card">
+                <div 
+                  key={idx} 
+                  className="protocol-card clickable-protocol-card"
+                  onClick={() => setActiveGuidelineModal({ item, iconIndex: idx })}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === "Enter") setActiveGuidelineModal({ item, iconIndex: idx }); }}
+                  style={{ cursor: "pointer" }}
+                >
                   <div className="protocol-top-bar">
                     <div className="protocol-icon-wrap">
                       {getGuidelineIcon(idx)}
@@ -596,14 +605,89 @@ export default function App() {
                   <h3 className="protocol-title">{item.title}</h3>
                   <p className="protocol-desc">{item.desc}</p>
 
-                  <div className="protocol-number-tag">
-                    PROTOCOL #{idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
+                  <div className="protocol-footer-action">
+                    <span className="protocol-number-tag">
+                      PROTOCOL #{idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
+                    </span>
+                    <span className="protocol-view-hint">
+                      Click to View Details →
+                    </span>
                   </div>
                 </div>
               ))}
             </div>
           </div>
         </section>
+
+        {/* Modal / Dialog for Rules & Regulations Directive */}
+        {activeGuidelineModal && (
+          <div className="modal-overlay" onClick={() => setActiveGuidelineModal(null)}>
+            <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-drag-handle"></div>
+              <button 
+                className="modal-close-btn"
+                onClick={() => setActiveGuidelineModal(null)}
+                aria-label="Close modal"
+              >
+                <X size={18} />
+              </button>
+
+              <div className="modal-header">
+                <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                  <span className="badge-tag badge-ug">
+                    {activeGuidelineModal.item.badge}
+                  </span>
+                  <span className="badge-type">{activeGuidelineModal.item.category}</span>
+                </div>
+                <h3 className="modal-title" style={{ marginTop: "0.5rem" }}>
+                  {activeGuidelineModal.item.title}
+                </h3>
+              </div>
+
+              <div style={{ margin: "1.25rem 0" }}>
+                <div style={{
+                  background: "#0e1116",
+                  border: "1px solid var(--border)",
+                  borderRadius: "10px",
+                  padding: "1.25rem",
+                  lineHeight: "1.65",
+                  color: "#f0f3f8",
+                  fontSize: "0.95rem"
+                }}>
+                  {activeGuidelineModal.item.desc}
+                </div>
+
+                {activeGuidelineModal.item.badge === "Digital" && (
+                  <div style={{
+                    marginTop: "1rem",
+                    padding: "0.85rem 1rem",
+                    background: "rgba(229, 149, 0, 0.08)",
+                    border: "1px solid rgba(229, 149, 0, 0.3)",
+                    borderRadius: "8px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.75rem"
+                  }}>
+                    <Mail size={18} color="var(--accent)" />
+                    <div style={{ fontSize: "0.82rem", color: "var(--text-muted)" }}>
+                      Send soft copy to <strong style={{ color: "var(--accent)" }}>{FESTIVAL_INFO.contactEmail}</strong> on or before <strong>23/11/2026</strong>.
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className="modal-footer">
+                <button 
+                  className="btn-secondary" 
+                  style={{ width: "100%" }}
+                  onClick={() => setActiveGuidelineModal(null)}
+                >
+                  Close Regulation Details
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* =================================================================
             5. REGISTRATION GATEWAY (Targeted UG / PG Google Form)

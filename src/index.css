@@ -949,13 +949,47 @@ button {
   margin-bottom: 1.25rem;
 }
 
+.protocol-footer-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: auto;
+}
+
 .protocol-number-tag {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   color: var(--text-faint);
   letter-spacing: 0.08em;
-  padding-top: 0.75rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.protocol-view-hint {
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-weight: 600;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.protocol-card:hover .protocol-view-hint {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+@media (max-width: 480px) {
+  .protocol-footer-action {
+    padding-top: 0.45rem !important;
+  }
+
+  .protocol-number-tag {
+    font-size: 0.6rem !important;
+  }
+
+  .protocol-view-hint {
+    font-size: 0.62rem !important;
+  }
 }
 
 /* Registration Callout Box */
