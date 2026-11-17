@@ -731,6 +731,28 @@ button {
   margin-top: 4px;
 }
 
+.coordinator-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #fff;
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  margin-top: 8px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.coordinator-phone:hover {
+  background: rgba(229, 149, 0, 0.15);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 @media (max-width: 600px) {
   .coordinators-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -743,17 +765,21 @@ button {
   }
 
   .coordinator-name {
-    font-size: 0.88rem !important;
+    font-size: 0.82rem !important;
     line-height: 1.25 !important;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .coordinator-roll {
-    font-size: 0.72rem !important;
+    font-size: 0.7rem !important;
     margin-top: 2px !important;
   }
+
+  .coordinator-phone {
+    font-size: 0.68rem !important;
+    padding: 2px 5px !important;
+    margin-top: 6px !important;
+  }
+}
 }
 
 /* ==========================================================================

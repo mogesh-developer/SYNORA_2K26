@@ -22,7 +22,8 @@ import {
   Trophy,
   Scale,
   Mail,
-  Send
+  Send,
+  Phone
 } from "lucide-react";
 
 export default function App() {
@@ -537,10 +538,29 @@ export default function App() {
             <div className="coordinators-grid">
               {STUDENT_COORDINATORS.map((coord, idx) => (
                 <div key={idx} className="coordinator-card">
-                  <div className="coordinator-name">{coord.name}</div>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "0.5rem", marginBottom: "0.4rem" }}>
+                    <div className="coordinator-name">
+                      {coord.name} <span style={{ color: "var(--accent)", fontSize: "0.85em", fontWeight: 600 }}>({coord.track})</span>
+                    </div>
+                    <span className={`badge-tag ${coord.track === "UG" ? "badge-ug" : "badge-pg"}`} style={{ fontSize: "0.65rem", padding: "1px 6px" }}>
+                      {coord.track} Lead
+                    </span>
+                  </div>
+
                   <div className="coordinator-roll">
                     Roll No: {coord.rollNo}
                   </div>
+
+                  {coord.phone && (
+                    <a 
+                      href={`tel:${coord.phoneTel}`} 
+                      className="coordinator-phone"
+                      title={`Call ${coord.name}`}
+                    >
+                      <Phone size={12} />
+                      <span>{coord.phone}</span>
+                    </a>
+                  )}
                 </div>
               ))}
             </div>
