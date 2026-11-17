@@ -59,8 +59,7 @@ export default function App() {
     const searchMatch =
       ev.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       ev.shortDesc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      ev.venue.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (ev.staffIncharge && ev.staffIncharge.toLowerCase().includes(searchQuery.toLowerCase()));
+      ev.venue.toLowerCase().includes(searchQuery.toLowerCase());
     return degreeMatch && typeMatch && searchMatch;
   });
 
@@ -387,7 +386,7 @@ export default function App() {
                     </div>
                   )}
 
-                  <div className="card-spec-grid">
+                  <div className="card-spec-grid" style={{ gridTemplateColumns: "1fr 1fr 1fr" }}>
                     <div className="spec-cell">
                       <span className="spec-title">Hall / Venue</span>
                       <span className="spec-val" style={{ color: "var(--accent)" }}>{event.venue}</span>
@@ -399,10 +398,6 @@ export default function App() {
                     <div className="spec-cell">
                       <span className="spec-title">Team Size</span>
                       <span className="spec-val">{event.teamSize}</span>
-                    </div>
-                    <div className="spec-cell">
-                      <span className="spec-title">Staff In-Charge</span>
-                      <span className="spec-val">{event.staffIncharge || "Department Staff"}</span>
                     </div>
                   </div>
 
@@ -463,11 +458,6 @@ export default function App() {
                     <span className="spec-title">Scheduled Timing</span>
                     <p style={{ fontSize: "0.95rem", fontWeight: 700, color: "#fff", marginTop: "2px" }}>{activeEventModal.time}</p>
                   </div>
-                </div>
-
-                <div style={{ background: "#0e1116", padding: "0.75rem", borderRadius: "8px", border: "1px solid var(--border)", marginBottom: "1rem" }}>
-                  <span className="spec-title">Staff In-Charge</span>
-                  <p style={{ fontSize: "0.9rem", color: "#fff", marginTop: "2px", fontWeight: 600 }}>{activeEventModal.staffIncharge || "Department Staff"}</p>
                 </div>
 
                 <h4 className="modal-section-title">// Official Rules & Guidelines</h4>

@@ -79,7 +79,7 @@ export const STRUCTURED_GUIDELINES = [
   {
     category: "Digital Challenge",
     title: "Poster Making (Online Mode)",
-    desc: "Poster Making will be executed online. Participants must submit their soft copy to amcsynora@gmail.com on or before 23/11/2026. Presentation will be conducted in front of the judge panel via digital projection.",
+    desc: "Poster Making will be executed with online soft copy submission by 23.11.2026 to amcsynora@gmail.com, and physical hard copy submission on A3 size paper at the registration desk on event day.",
     badge: "Digital"
   },
   {
@@ -111,10 +111,9 @@ export const EVENTS = [
     venue: "Hall E11, Eva Swift Building",
     time: "09:30 am - 10:15 am",
     duration: "45 Minutes",
-    staffIncharge: "Dr. K. Berlin",
     rules: [
       "Prelims will be conducted.",
-      "2 participants per team.",
+      "Two participants per team.",
       "Questions based on current affairs and basic technology.",
       "Any act against the spirit of the game will lead to disqualification of the team."
     ]
@@ -129,15 +128,14 @@ export const EVENTS = [
     venue: "Hall E12, Eva Swift Building",
     time: "09:30 am - 11:00 am",
     duration: "3 mins presentation + 2 mins queries",
-    staffIncharge: "Ms. V. Backiyalaksmi",
     requiresSubmission: true,
-    submissionDeadline: "23/11/2026",
+    submissionDeadline: "23.11.2026",
     submissionEmail: "amcsynora@gmail.com",
     rules: [
-      "1 participant per team.",
-      "Participants should bring hard copy and soft copy.",
-      "Soft copy of PPT / Paper must be submitted to amcsynora@gmail.com on or before 23/11/2026.",
+      "One person can participate.",
+      "Participant should bring hard copy and soft copy of your presentation.",
       "Time Duration: 3 minutes for presentation and 2 minutes for queries.",
+      "Submit the soft copy of your presentation on or before 23.11.2026 to amcsynora@gmail.com.",
       "Topics:",
       "• Emerging Trends, Innovations and Challenges in Science, Technology and Society",
       "• Digital Privacy: Are We Really Safe Online",
@@ -156,15 +154,14 @@ export const EVENTS = [
     venue: "Hall E10, Eva Swift Building",
     time: "09:30 am - 10:30 am",
     duration: "1 hour",
-    staffIncharge: "Mrs. K. Sankareswari",
     rules: [
-      "2 participants per team.",
+      "Two participants per team.",
       "No direct flames, induction stoves, or electric appliances are allowed.",
       "Participants must bring their own ingredients, utensils, and serving dishes.",
       "Pre-prepared items: Pre-chopped, grated, or blended ingredients are allowed, but the final assembly and presentation must be done during the competition.",
       "Participants must maintain cleanliness and hygiene throughout the competition.",
       "Team should ensure they clean up their cooking area before leaving.",
-      "Time duration: 1 hour."
+      "Time duration: One hour."
     ]
   },
   {
@@ -177,9 +174,8 @@ export const EVENTS = [
     venue: "M.Sc Computer Science 3rd Year Hall, JB Block",
     time: "09:30 am - 11:00 am",
     duration: "5 minutes",
-    staffIncharge: "Ms. D. Sindhiya Graham",
     rules: [
-      "4 participants per team.",
+      "Four participants per team.",
       "Theme will be given on the spot.",
       "The advertisement can be skit, role-play, talk show style, or creative commercial presentation.",
       "No vulgarity or offensive content.",
@@ -191,21 +187,19 @@ export const EVENTS = [
     id: "ug-poster-making",
     category: "UG",
     type: "Creative",
-    title: "Poster Making (Online)",
-    shortDesc: "Digital presentation via soft copy in front of the judge panel (Online Mode).",
+    title: "Poster Making (Online & Hard Copy Submission)",
+    shortDesc: "Submit soft copy online by 23.11.2026 and bring hard copy on A3 size paper on event day.",
     teamSize: "1 participant per team",
     venue: "B.A. English 1st Year Classroom, JB Block",
     time: "09:30 am - 10:30 am",
     duration: "1 hour",
-    staffIncharge: "Department Coordinator",
     requiresSubmission: true,
-    submissionDeadline: "23/11/2026",
+    submissionDeadline: "23.11.2026",
     submissionEmail: "amcsynora@gmail.com",
     rules: [
-      "1 participant per team.",
-      "Digital presentation via soft copy in front of judges.",
-      "Note: This event conduction will be online.",
-      "Participants must email their poster soft copy to amcsynora@gmail.com on or before 23/11/2026.",
+      "One participant can participate.",
+      "Participant must submit the soft copy of your poster on or before 23.11.2026 to amcsynora@gmail.com.",
+      "Participant should bring the hard copy on A3 size paper and it should be submitted at the registration desk on the date.",
       "Topics:",
       "• Save Earth, Save Future",
       "• Go Green, Live Clean",
@@ -222,11 +216,10 @@ export const EVENTS = [
     shortDesc: "On-spot interactive AI prompt task assessing generative precision and logic.",
     teamSize: "1 participant per team",
     venue: "AI Lab, JB Block",
-    time: "09:30 am - 10:30 am",
+    time: "09:30 am - 10:00 am",
     duration: "20 minutes",
-    staffIncharge: "Ms. P. Malarvizhi",
     rules: [
-      "1 participant per team.",
+      "One person can participate.",
       "On-spot interactive AI Prompt Task.",
       "Time duration: 20 minutes."
     ]
@@ -241,9 +234,8 @@ export const EVENTS = [
     venue: "M.Sc Computer Science 1st Year Hall, JB Block",
     time: "09:30 am - 12:00 pm",
     duration: "5 minutes per candidate",
-    staffIncharge: "Mrs. K. Sankareswari",
     rules: [
-      "1 participant per team.",
+      "One person can participate.",
       "The participant will face an individual interview conducted by the judges.",
       "The interviewer may deliberately create pressure or challenging situations to test the participant's response.",
       "Participants should remain calm, confident, and professional throughout the interview.",
@@ -260,11 +252,15 @@ export const EVENTS = [
     venue: "Main Multi-Purpose Auditorium Hall",
     time: "09:30 am - 10:30 am",
     duration: "3 minutes",
-    staffIncharge: "Mrs. K. Sankareswari",
     rules: [
-      "1 participant per team.",
+      "One person can participate.",
       "The dress code must follow a formal corporate theme.",
-      "The walk should include: Proper posture, Confident walking, Professional body language, Appropriate facial expression, Proper grooming.",
+      "The walk should include:",
+      "• Proper posture",
+      "• Confident walking",
+      "• Professional body language",
+      "• Appropriate facial expression",
+      "• Proper grooming",
       "Duration: 3 minutes."
     ]
   },
@@ -282,10 +278,9 @@ export const EVENTS = [
     venue: "Hall E11, Eva Swift Building",
     time: "10:15 am - 11:00 am",
     duration: "45 Minutes",
-    staffIncharge: "Dr. K. Berlin",
     rules: [
       "Prelims will be conducted.",
-      "2 participants per team.",
+      "Two participants per team.",
       "Questions based on current affairs and basic technology.",
       "Any act against the spirit of the game will lead to disqualification of the team."
     ]
@@ -300,15 +295,14 @@ export const EVENTS = [
     venue: "English Department Conference Hall, JB Block",
     time: "09:30 am - 11:30 am",
     duration: "3 mins presentation + 2 mins queries",
-    staffIncharge: "Ms. V. Backiyalaksmi",
     requiresSubmission: true,
-    submissionDeadline: "23/11/2026",
+    submissionDeadline: "23.11.2026",
     submissionEmail: "amcsynora@gmail.com",
     rules: [
-      "1 participant per team.",
-      "Participants should bring hard copy and soft copy.",
-      "Soft copy of PPT / Paper must be submitted to amcsynora@gmail.com on or before 23/11/2026.",
+      "One person can participate.",
+      "Participant should bring hard copy and soft copy of your presentation.",
       "Time Duration: 3 minutes for presentation and 2 minutes for queries.",
+      "Submit the soft copy of your presentation on or before 23.11.2026 to amcsynora@gmail.com.",
       "Topics:",
       "• Emerging Trends, Innovations and Challenges in Science, Technology and Society",
       "• Digital Privacy: Are We Really Safe Online",
@@ -324,17 +318,20 @@ export const EVENTS = [
     title: "Startup Idea",
     shortDesc: "Pitch entrepreneurial startup concepts with business feasibility deck and Q&A viva.",
     teamSize: "1 participant per team",
-    venue: "M.Sc Computer Science 2nd Year Hall, JB Block",
-    time: "09:30 am - 11:00 am",
+    venue: "AI Lab, JB Block",
+    time: "10:30 am - 11:30 am",
     duration: "3 mins presentation + 2 mins queries",
-    staffIncharge: "Mr. M. Silvanus Manual",
     requiresSubmission: true,
-    submissionDeadline: "23/11/2026",
+    submissionDeadline: "23.11.2026",
     submissionEmail: "amcsynora@gmail.com",
     rules: [
-      "1 participant per team.",
-      "Participants should bring soft copy and hard copy.",
-      "Soft copy of the startup pitch presentation must be submitted to amcsynora@gmail.com on or before 23/11/2026.",
+      "One person can participate.",
+      "Each participant must present an original and innovative startup idea.",
+      "Ideas can be based on technology, business, education, healthcare, social innovation or any other field. It must be practical, feasible and socially and economically beneficial.",
+      "Copied ideas will lead to disqualification.",
+      "Participants must clearly explain the problem statement and their proposed solution.",
+      "Participants are allowed to use PowerPoint presentations, prototypes, models or demonstrations.",
+      "Submit the soft copy of your presentation on or before 23.11.2026 to amcsynora@gmail.com.",
       "Time: 3 minutes for presentation and 2 minutes for queries."
     ]
   },
@@ -346,11 +343,10 @@ export const EVENTS = [
     shortDesc: "Postgraduate level on-spot generative AI challenge evaluating prompt craft.",
     teamSize: "1 participant per team",
     venue: "AI Lab, JB Block",
-    time: "09:30 am - 10:30 am",
+    time: "09:30 am - 10:00 am",
     duration: "20 minutes",
-    staffIncharge: "Ms. P. Malarvizhi",
     rules: [
-      "1 participant per team.",
+      "One person can participate.",
       "On-spot interactive AI Prompt Task.",
       "Time duration: 20 minutes."
     ]
@@ -365,9 +361,8 @@ export const EVENTS = [
     venue: "M.Sc Computer Science 1st Year Hall, JB Block",
     time: "09:30 am - 12:00 pm",
     duration: "5 minutes",
-    staffIncharge: "Mrs. K. Sankareswari",
     rules: [
-      "1 participant per team.",
+      "One person can participate.",
       "The participant will face an individual interview conducted by the judges.",
       "The interviewer may deliberately create pressure or challenging situations to test the participant's response.",
       "Participants should remain calm, confident, and professional throughout the interview.",
@@ -384,11 +379,15 @@ export const EVENTS = [
     venue: "Main Multi-Purpose Auditorium Hall",
     time: "10:30 am - 11:30 am",
     duration: "3 minutes",
-    staffIncharge: "Mrs. K. Sankareswari",
     rules: [
-      "1 participant per team.",
+      "One person can participate.",
       "The dress code must follow a formal corporate theme.",
-      "The walk should include: Proper posture, Confident walking, Professional body language, Appropriate facial expression, Proper grooming.",
+      "The walk should include:",
+      "• Proper posture",
+      "• Confident walking",
+      "• Professional body language",
+      "• Appropriate facial expression",
+      "• Proper grooming",
       "Duration: 3 minutes."
     ]
   }
