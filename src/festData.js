@@ -1,8 +1,8 @@
-// Official Intra / Inter Department Meet Data — SYNORA 2K26
+// Official Intra / Inter Department Meet Data — SYNORA 2026
 // Exact details synchronized from Official Poster & Event Document
 
 export const FESTIVAL_INFO = {
-  name: "SYNORA 2K26",
+  name: "SYNORA 2026",
   tagline: "Where mind converge, ideas evolve",
   eventType: "Inter Department Meet",
   college: "THE AMERICAN COLLEGE",
@@ -14,7 +14,7 @@ export const FESTIVAL_INFO = {
   principalRole: "Principal & Secretary",
   hod: "Dr. K. Britto Alex",
   hodRole: "Head of the Department",
-  dateFormatted: "Wednesday, November 25, 2K26",
+  dateFormatted: "Wednesday, November 25, 2026",
   timeFormatted: "9:30 am",
   registrationFee: "₹70 per head",
   ugGoogleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeFDoOmhDGrnAva5a3s7UffPSpaT6ziTMslVgHMOGuuZyJHtQ/viewform?usp=dialog", // UG Registration Form
