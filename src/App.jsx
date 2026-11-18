@@ -3,7 +3,8 @@ import {
     FESTIVAL_INFO,
     STRUCTURED_GUIDELINES,
     EVENTS,
-    STUDENT_COORDINATORS
+    STUDENT_COORDINATORS,
+    ORGANIZING_COMMITTEE
   } from "./festData";
 import {
     ExternalLink,
@@ -209,28 +210,75 @@ export default function App() {
             </div>
           </div>
 
-          {/* Dignitaries Citation from Poster */}
-            < div style={{
+          {/* Dignitaries Citation & Organizing Committee from Official Poster */}
+          <div style={{
+            background: "#11141a",
+            borderRadius: "12px",
+            border: "1px solid var(--border)",
+            padding: "1.5rem 1.25rem",
+            marginTop: "1.75rem",
+            maxWidth: "880px",
+            marginLeft: "auto",
+            marginRight: "auto",
+            width: "100%"
+          }}>
+            <div style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: "1rem",
-              padding: "1.25rem",
-              background: "#11141a",
-              borderRadius: "10px",
-              border: "1px solid var(--border)",
-              marginTop: "1.5rem"
+              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              gap: "1.25rem",
+              paddingBottom: "1.25rem",
+              borderBottom: "1px solid rgba(255, 255, 255, 0.07)"
             }}>
-            <div style={{ textAlign: "center" }}>
-              <div style={{ fontSize: "1.05rem", fontWeight: 700, color: "#fff" }}>{FESTIVAL_INFO.principal}</div>
-              <div style={{ fontSize: "0.8rem", color: "var(--accent)", textTransform: "uppercase", letterSpacing: "0.05em", fontFamily: "var(--font-mono)", marginTop: "2px" }}>
-                {FESTIVAL_INFO.principalRole}
+              <div style={{ textAlign: "center" }}>
+                <div style={{ fontSize: "1.1rem", fontWeight: 700, color: "#fff" }}>{FESTIVAL_INFO.principal}</div>
+                <div style={{ fontSize: "0.82rem", color: "var(--accent)", textTransform: "uppercase", letterSpacing: "0.06em", fontFamily: "var(--font-mono)", marginTop: "3px" }}>
+                  {FESTIVAL_INFO.principalRole}
+                </div>
+              </div>
+
+              <div style={{ textAlign: "center" }}>
+                <div style={{ fontSize: "1.1rem", fontWeight: 700, color: "#fff" }}>{FESTIVAL_INFO.hod}</div>
+                <div style={{ fontSize: "0.82rem", color: "var(--accent)", textTransform: "uppercase", letterSpacing: "0.06em", fontFamily: "var(--font-mono)", marginTop: "3px" }}>
+                  {FESTIVAL_INFO.hodRole}
+                </div>
               </div>
             </div>
 
-            <div style={{ textAlign: "center" }}>
-              <div style={{ fontSize: "1.05rem", fontWeight: 700, color: "#fff" }}>{FESTIVAL_INFO.hod}</div>
-              <div style={{ fontSize: "0.8rem", color: "var(--accent)", textTransform: "uppercase", letterSpacing: "0.05em", fontFamily: "var(--font-mono)", marginTop: "2px" }}>
-                {FESTIVAL_INFO.hodRole}
+            {/* Organizing Committee Staff Names (Below HOD & Principal, outside event cards) */}
+            <div style={{ marginTop: "1.25rem", textAlign: "center" }}>
+              <div style={{
+                fontSize: "0.78rem",
+                color: "var(--accent)",
+                textTransform: "uppercase",
+                letterSpacing: "0.08em",
+                fontFamily: "var(--font-mono)",
+                fontWeight: 700,
+                marginBottom: "0.75rem"
+              }}>
+                // Organizing Committee
+              </div>
+              <div style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                gap: "0.5rem 0.75rem"
+              }}>
+                {ORGANIZING_COMMITTEE.map((staffName, index) => (
+                  <span
+                    key={index}
+                    style={{
+                      background: "rgba(255, 255, 255, 0.04)",
+                      border: "1px solid var(--border)",
+                      color: "#e2e8f0",
+                      fontSize: "0.88rem",
+                      fontWeight: 500,
+                      padding: "0.35rem 0.85rem",
+                      borderRadius: "20px"
+                    }}
+                  >
+                    {staffName}
+                  </span>
+                ))}
               </div>
             </div>
           </div>

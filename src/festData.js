@@ -24,6 +24,16 @@ export const FESTIVAL_INFO = {
   convenorContact: "+91 98401 23456"
 };
 
+// Organizing Committee Staff Members directly from Official Poster
+export const ORGANIZING_COMMITTEE = [
+  "Mrs. K. Sankareswari",
+  "Dr. K. Berlin",
+  "Mr. M. Silvanus Manuel",
+  "Mrs. V. Backiyalakshmi",
+  "Mrs. P. Malarvizhi",
+  "Mrs. D. Sindhiya Graham"
+];
+
 // Student Coordinators directly from Official Document
 export const STUDENT_COORDINATORS = [
   {
